@@ -1,4 +1,5 @@
 <?php
+/*SUPRESS PHP* ERROS*/
 	require_once 'connection.php';
 	
 	/*INPUT: RoomId,p1,1
@@ -10,30 +11,43 @@
 	while($row=mysql_fetch_assoc($rows))
 	{   
 		
-		if($room==$row['RoomId']) 
+		if($RoomId==$row['RoomId']) 
 		{
+			echo "this";
 			$room=$row['RoomId'];
 	
 			/*GETTING OLD VALUES OF PLAYER WHO PLAYED AND UPDATING HIS DB */
 			$inprescards=$row[$player];
 			$inprescards=preg_replace("/".$card."/","", $inprescards,1);
 			$inprescards=str_replace(",,",",",$inprescards);
+			$inprescards=trim($inprescards,",");
+				
+				
+				
 			$query1 = "UPDATE currentgame SET $player='$inprescards' WHERE RoomId='$room'";
 			mysql_query($query1);
+			
+			
 			
 			/*UPDATING NEXT PLAYER IN DB AND ECHOING TO HIM*/
 			$nextPlayer=substr($player,-1); 
 			$nextPlayer="p".($nextPlayer+1);
 			if($nextPlayer=="p5")
-				$nextPlayer=="p1"
+				$nextPlayer="p1";
 			$outprescards=$row[$nextPlayer];
-			$outprescards=$outprescards.",".$card;
+			if($outprescards=="")
+					$outprescards=$card;
+			else
+				$outprescards=$outprescards.",".$card;
 			
 			$query1 = "UPDATE currentgame SET $nextPlayer='$outprescards' WHERE RoomId='$room'";
 			mysql_query($query1);
+			echo "$card";
 			
-			
+			$query1 = "UPDATE currentgame SET Turn='$nextPlayer' WHERE RoomId='$room'";
+			mysql_query($query1);
 		}
+		
 	}
 	
 ?>

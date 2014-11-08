@@ -27,6 +27,7 @@
 	{
 	    $query = "SELECT * FROM currentgame";
 		$rows = mysql_query($query);
+		$flag=1;
 		while($row=mysql_fetch_assoc($rows))
 		{   
 			$lists=$row['RoomId'];
@@ -38,20 +39,20 @@
 			
 				if($row['p1']== "")
 				{
-					echo "herhe".$row['p1'];
+				//	echo "herhe".$row['p1'];
 					$player="p1";
 					$playerValues=array_slice($numbers,0,4);				
 				}
 				else if($row['p2']== "")
 				{
-					echo $row['p2'];
+				//	echo $row['p2'];
 					$player="p2";
-					$playerValues=array_slice($numbers,5,9);				
+					$playerValues=array_splice($numbers,4,4);				
 				}
 				else if($row['p3']== "")
 				{
 					$player="p3";
-					$playerValues=array_slice($numbers,9,12);				
+					$playerValues=array_splice($numbers,8,4);				
 				}
 				else if($row['p4']== "")
 				{
@@ -61,14 +62,16 @@
 				else
 				{
 					echo "Room Full";
+					$flag=0;
 				}
-				
+				if($flag)
+				{
 				$playerValues=implode($playerValues,",");
 				$query1 = "UPDATE currentgame SET $player='$playerValues' WHERE RoomId='$lists'";
-				echo $query1;
+			//	echo $query1;
 				mysql_query($query1);
-				echo "$player : $playerValues;
-				
+				echo "$player:$playerValues";
+					}
 			}
 			
 		}

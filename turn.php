@@ -9,7 +9,7 @@
 	$query = "SELECT Turn FROM currentgame WHERE RoomId='$room'";
 	$rows = mysql_query($query);
 	$row=mysql_fetch_assoc($rows);
-	$turn=$row['TURN'];
-	header("TURN:$turn");
+	$turn=$row['Turn'];
+	echo $turn;
 
 ?>

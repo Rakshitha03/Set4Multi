@@ -10,6 +10,7 @@
 	$rows = mysql_query($query);
 	$row=mysql_fetch_assoc($rows);
 	$turn=$row['TURN'];
+	$tosend=$turn;
 	if($turn!="none")
 	{
 		$query = "SELECT * FROM currentgame WHERE RoomId='$room'";
@@ -19,10 +20,10 @@
 		$p2card=$row['p2'];
 		$p3card=$row['p3'];
 		$p4card=$row['p4'];
-		header("p1:$p1card");
-		header("p2:$p2card");
-		header("p3:$p3card");
-		header("p4:$p4card");
+		$tosend=$tosend.";p1:$p1card";
+		$tosend=$tosend.";p2:$p2card";
+		$tosend=$tosend.";p3:$p3card";
+		$tosend=$tosend.";p4:$p4card";
 	}
-	header("TURN:$turn");
+	echo $tosend;
 ?>
