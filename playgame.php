@@ -1,7 +1,9 @@
 <?php
-	//Send in roomNo,Player who made the move,card he moved(which is just number)
-	//
 	require_once 'connection.php';
+	
+	/*INPUT: RoomId,p1,1
+	  OUTPUT:UPDATE in DB */
+	  
 	extract($_GET);
 	$query = "SELECT * FROM currentgame";
 	$rows = mysql_query($query);
@@ -29,8 +31,6 @@
 			
 			$query1 = "UPDATE currentgame SET $nextPlayer='$outprescards' WHERE RoomId='$room'";
 			mysql_query($query1);
-			
-			echo $card;
 			
 			
 		}

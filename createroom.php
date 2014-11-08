@@ -1,7 +1,11 @@
 <?php
 	require_once 'connection.php';
+	/*
+		INPUT: RoomId or new
+		OUTPUT: Room Created, list created in db, player1's cards echoed */
+		
 	extract($_GET);
-    if($room=="new")
+    if($RoomId=="new")
 	{
 		 $room="rno".time();
 		 $numbers = range(1,16);
@@ -16,6 +20,8 @@
 	
 		 $query = "INSERT INTO currentgame VALUES('$room','$numbers','','','','','p1','none')";
 		 mysql_query($query);
+		 
+		 echo $room;
 	}
 	else
 	{
@@ -24,7 +30,7 @@
 		while($row=mysql_fetch_assoc($rows))
 		{   
 			$lists=$row['RoomId'];
-			if($lists==$room)
+			if($lists==$RoomId)
 			{
 				$li=$row['Cards'];
 			
