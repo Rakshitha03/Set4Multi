@@ -14,7 +14,7 @@
 		
 		$numbers=implode($numbers,",");
 	
-		 $query = "INSERT INTO currentgame VALUES('$room','$numbers','','','','')";
+		 $query = "INSERT INTO currentgame VALUES('$room','$numbers','','','','','p1','none')";
 		 mysql_query($query);
 	}
 	else
