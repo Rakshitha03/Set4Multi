@@ -10,7 +10,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/imageButton2"
         android:layout_below="@+id/imageButton2"
-        android:src="@drawable/pic4" />
+        android:src="@drawable/pic4" 
+        android:onClick="passValue"
+        />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -19,7 +21,8 @@
         android:layout_above="@+id/imageButton3"
         android:layout_alignParentRight="true"
         android:layout_marginRight="28dp"
-        android:src="@drawable/pic2" />
+        android:src="@drawable/pic2"
+        android:onClick="passValue" />
 
     <ImageButton
         android:id="@+id/imageButton1"
@@ -30,7 +33,7 @@
         android:layout_marginLeft="28dp"
         android:layout_marginTop="18dp"
         android:src="@drawable/pic1"
-        android:onClick="sendHeader" />
+        android:onClick="passValue" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -38,15 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/imageButton1"
         android:layout_below="@+id/imageButton1"
-        android:src="@drawable/pic3" />
-
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageButton4"
-        android:layout_toRightOf="@+id/imageButton3"
-        android:src="@drawable/pic1" />
+        android:src="@drawable/pic3"
+        android:onClick="passValue" />
 
     <EditText
         android:id="@+id/editText1"
@@ -61,5 +57,15 @@
 
         <requestFocus />
     </EditText>
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/editText1"
+        android:layout_marginRight="31dp"
+        android:src="@drawable/pic1"
+        android:onClick="passValue" />
 
 </RelativeLayout>
