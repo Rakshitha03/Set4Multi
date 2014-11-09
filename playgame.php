@@ -1,5 +1,5 @@
 <?php
-/*SUPRESS PHP* ERROS*/
+	error_reporting(E_ERROR);
 	require_once 'connection.php';
 	
 	/*INPUT: RoomId,p1,1
@@ -46,6 +46,14 @@
 			
 			$query1 = "UPDATE currentgame SET Turn='$nextPlayer' WHERE RoomId='$room'";
 			mysql_query($query1);
+			echo"<br>";
+			echo "player is $nextPlayer his cards are $outprescards";
+			//echo substr_count($outprescards,$outprescards[0]);
+			if(substr_count($outprescards,$outprescards[0])==4||substr_count($outprescards,$outprescards[1])==4)
+			{
+				$query1 = "UPDATE currentgame SET Winner='$nextPlayer' WHERE RoomId='$room'";
+				mysql_query($query1);
+			}
 		}
 		
 	}
