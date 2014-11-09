@@ -5,7 +5,7 @@ import android.util.Log;
 public class Data 
 {
 	String t;
-	String p;
+	String [] c;
 	Data()
 	{
 		t="pls";
@@ -21,13 +21,13 @@ public class Data
 		return t;
 	}
 	
-	public void setPlayer(String pl)
+	public void setPlayer(String [] cards)
 	{
-		p = pl;
+		c = cards;
 	}
 	
-	public String getPlayer()
+	public String[] getPlayer()
 	{
-		return p;
+		return c;
 	}
 }
