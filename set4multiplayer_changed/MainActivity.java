@@ -15,6 +15,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,8 +26,19 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		if (getIntent().getBooleanExtra("EXIT", false)) 
+		{
+		        finish();
+		        System.exit(0);
+		}
+		Log.d("strt","newActivity");
+		Intent intent = new Intent(this, Winner.class);
+		intent.putExtra("playerNo", "2");
+		intent.putExtra("card", "3");
+		startActivity(intent);
 	}
-	public void getRooms(View v)
+}
+/*	public void getRooms(View v)
 	{
 		new Thread(){
 			 public void run(){
@@ -83,3 +95,4 @@ public class MainActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 }
+*/
