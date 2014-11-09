@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#006600" >
+
+    <ImageView
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/pic1"
+         />
+
+    <ImageView
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageButton1"
+        android:layout_centerVertical="true"
+        android:src="@drawable/pic3" />
+
+    <ImageView
+        android:id="@+id/imageButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageButton2"
+        android:layout_alignTop="@+id/imageButton3"
+        android:src="@drawable/pic4" />
+
+    <ImageView
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageButton1"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/pic2" />
+
+    <TextView
+        android:id="@+id/Text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageButton3"
+        android:layout_marginTop="29dp"
+        android:ems="10"
+        android:gravity="center"
+        android:text="Player has Won!!!"
+        android:textColorHighlight="#fff000"
+        android:textSize="30dp" />
+
+<ImageView
+    android:id="@+id/imageView6"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_alignLeft="@+id/imageButton3"
+    android:layout_below="@+id/Text1"
+    android:layout_marginTop="14dp"
+    android:clickable="true"
+    android:onClick="clickNew"
+    android:src="@drawable/exit" />
+
+<ImageView
+    android:id="@+id/imageView7"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_alignBottom="@+id/imageView6"
+    android:layout_alignRight="@+id/imageButton4"
+    android:layout_marginRight="15dp"
+    android:clickable="true"
+    android:onClick="clickStart"
+    android:src="@drawable/newpic" />
+
+</RelativeLayout>
